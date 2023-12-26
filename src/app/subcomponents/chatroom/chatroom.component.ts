@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './chatroom.component.html',
-  styleUrl: './chatroom.component.css'
+  styleUrl: './chatroom.component.scss'
 })
 export class ChatroomComponent {
 

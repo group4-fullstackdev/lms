@@ -1,0 +1,58 @@
+.navbars{
+    background-color: rgba(182, 195, 202, 0.285);
+    -webkit-box-shadow: -8px
+    7px
+    19px
+    0px
+    rgba(66, 68, 69, 0.75);
+  -moz-box-shadow: -8px
+    7px
+    19px
+    0px
+    rgba(79, 81, 83, 0.75);
+  box-shadow: -8px
+    7px
+    19px
+    0px
+    rgba(41, 42, 42, 0.75);
+     min-height: 60px;
+     & .navbar-brand{
+         color: rgb(2, 20, 36);
+     }
+     & .nav-link{
+       color: rgba(217, 231, 236, 0.838);
+       font-weight: bold;
+         
+     }
+     & .nav-item{
+         display: inline;
+         padding: 10px;
+     }
+     @media screen and (max-width: 990px) {
+       background-image: linear-gradient(to right bottom, #1b517e93, #1445689f, #19445f89, #1c486d8a, #254e7994, #20567f9a, #1d5e8490, #23759baf, #2f96c2a7, #35a6d6af);
+       & .nav-link{
+           color: rgba(217, 231, 236, 0.838);;
+         }
+ 
+         &
+           .navlist {
+           li {
+             min-width: 300px;
+             text-align: left;
+           }
+         }
+     
+     .navtog{
+       background-image: linear-gradient(to right bottom, #1b517e, #144568, #3c6076, #1c496d, #254e79, #20567f, #1d5f84, #1d6788, #23769b, #2985ae, #2f95c2, #35a5d6);
+         border: var(
+             --bs-border-width
+           )
+           solid
+           rgba(135, 150, 153, 0.6);
+         &:focus {
+           box-shadow: none;
+         }
+     }
+ }
+ }
+ 
