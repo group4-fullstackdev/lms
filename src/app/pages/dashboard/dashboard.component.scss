@@ -1,0 +1,29 @@
+.wrapper{
+    color: black;
+    min-height: 90vh;
+    padding-top: 20px;
+
+   & .mainGrid{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    column-gap: 5px;
+
+    }
+
+    & .grids{
+        background-color: rgb(177, 187, 187)240, 255, 255, 0.356;
+    }
+
+    & .title{
+        font-weight: bold;
+        font-size: larger;
+        background-color: rgb(247, 235, 247);
+    }
+
+    & .welcome{
+        font-size: x-large;
+        font-weight: bold;
+        color: rgb(19, 70, 104);
+    }
+}

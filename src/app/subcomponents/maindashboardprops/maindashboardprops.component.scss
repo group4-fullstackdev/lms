@@ -1,0 +1,39 @@
+.modcard{
+    min-height: 20vh;
+    width: 100%;
+    background-image: linear-gradient(to right top, #f4e9f1, #d6c9de, #aeadce, #7a95be, #327fa8);
+   // background-image: linear-gradient(to right top, #d3e0c0, #b8debd, #98dbc3, #74d6d1, #50d0e3);
+    //background-color: darkgrey;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    box-shadow: 1px 0 4px 3px #0a2438bd;
+}
+
+.cardcon{
+    min-height: 90vh;
+    width: 100%;
+    border-color: 2px solid black;
+    border-style: groove;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.maing{
+    margin-top: 30px;
+}
+
+.modt{
+    font-weight: bold;
+    font-size: x-large;
+    color: #2c7399;
+}
+
+.mod{
+    font-weight: bold;
+    font-size: large;
+    color: #082230;
+}
