@@ -1,12 +1,25 @@
 
 .wrapper{
     background-image: linear-gradient(to right bottom, #7e1b53, #6d2b66, #563871, #3d4176, #224774, #1b507a, #16597f, #156183, #1d7197, #2582ac, #2d93c1, #35a5d6);
-    min-height: 120vh;
+    min-height: 90vh;
      color: black;
 
      & .mainGrid{
          padding-top: 20px;
          min-height: 100vh;
+     }
+
+     & .landingbox{
+        padding-top: 20px;
+        height: 80vh;
+        width: 100vh;
+        box-shadow: 1px 0 7px 6px #0a243867;
+     }
+     & .loginbtn{
+        //background-color: #35a5d6;
+        background-image: linear-gradient(to right top, #227f99, #5194a8, #75a8b8, #97bec9, #b8d3da);
+        color: #031e2e;
+        font-weight: bold;
      }
 
      & .prof{
