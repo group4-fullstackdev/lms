@@ -7,6 +7,8 @@ import { ModulecontentComponent } from './pages/modulecontent/modulecontent.comp
 import { LoginComponent } from './pages/login/login.component';
 import { NoticeComponent } from './subcomponents/notice/notice.component';
 import { ChatroomComponent } from './subcomponents/chatroom/chatroom.component';
+import { GradesComponent } from './pages/grades/grades.component';
+import { NoticestaffComponent } from './subcomponents/noticestaff/noticestaff.component';
 
 export const routes: Routes = [
   { path: '', component: Component1Component},
@@ -17,5 +19,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'notice', component: NoticeComponent},
   { path: 'chatroom', component: ChatroomComponent},
+  { path: 'grades', component: GradesComponent},
+  { path: 'noticestaff', component: NoticestaffComponent},
   
 ];
