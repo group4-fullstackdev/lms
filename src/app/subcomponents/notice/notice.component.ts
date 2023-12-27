@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './notice.component.html',
-  styleUrl: './notice.component.css'
+  styleUrl: './notice.component.scss'
 })
 export class NoticeComponent {
 
