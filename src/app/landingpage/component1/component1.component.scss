@@ -18,8 +18,9 @@
      & .loginbtn{
         //background-color: #35a5d6;
         background-image: linear-gradient(to right top, #227f99, #5194a8, #75a8b8, #97bec9, #b8d3da);
-        color: #031e2e;
+        color: #164058;
         font-weight: bold;
+        border-style: none;
      }
 
      & .prof{
@@ -34,9 +35,12 @@
          font-weight: bold;
      }
      & .desc2{
-         font-size: 16px;
+         font-size: 17px;
+         font-weight: bold;
          justify-content: center;
          justify-self: center !important;
+         margin-left: 30px;
+         color: #b8bfc0;
      }
      & .profile{
          padding-bottom: 10px;
