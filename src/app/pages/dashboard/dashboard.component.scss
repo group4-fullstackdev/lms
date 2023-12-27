@@ -2,6 +2,7 @@
     color: black;
     min-height: 90vh;
     padding-top: 20px;
+    padding-bottom: 20px;
 
    & .mainGrid{
     padding: 20px;
@@ -18,12 +19,19 @@
     & .title{
         font-weight: bold;
         font-size: larger;
-        background-color: rgb(247, 235, 247);
+        background-image: linear-gradient(to right, #eeb6e2, #d7c6f5, #c5d5fb, #c1e0f7, #cbe8f0);
+        //background-color: rgb(247, 235, 247);
+        min-height: 5vh;
+        color: rgb(10, 53, 68);
+        box-shadow: 1px 0 2px 2px #0a2438bd;
+        border-radius: 5px;
     }
 
     & .welcome{
         font-size: x-large;
         font-weight: bold;
         color: rgb(19, 70, 104);
+        padding-top: 45px;
+        padding-left: 5px;
     }
 }
