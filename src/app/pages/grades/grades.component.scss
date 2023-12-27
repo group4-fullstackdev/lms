@@ -1,0 +1,17 @@
+.wrapper{
+    min-height: 90vh;
+
+& .maing{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    border-style: groove;
+
+    }
+& .grdnote{
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: large;
+    color: rgb(13, 52, 65);
+}
+}

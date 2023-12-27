@@ -1,0 +1,62 @@
+.wrapper{
+    min-height: 90vh;
+    padding-top: 20px;
+
+& .maing{
+    padding: 20px;
+}
+
+& .discforum{
+    box-shadow: 1px 0 4px 3px #0a2438bd;
+    padding-top: 20px;
+    overflow-y: scroll;
+    min-height: 70vh;
+    
+}
+& .chatenter{
+    padding-bottom: 20px;
+    margin-top: 30px;
+}
+
+.btcon{
+    background-image: linear-gradient(to right top, #227f99, #5194a8, #75a8b8, #97bec9, #b8d3da);
+    color: #031e2e;
+    font-weight: bold;
+    margin-left: 5px;
+    border-radius: 12px;
+    border-style: none !important;
+}
+
+& .toppan{
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: x-large;
+    color: #13596d;
+}
+& .chato{
+    background-image: linear-gradient(to right top, #518da6, #799cbc, #a0accd, #c4bcda, #e3cee5);
+    //background-image: linear-gradient(to right top, #0d4162, #316380, #53869d, #77aabb, #9fd0da);
+    width: 50%;
+    min-height: 20vh;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    justify-self: right !important;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: medium;
+}
+& .chatu{
+    background-image: linear-gradient(to right top, #9f5187, #af71a0, #bf90b8, #d1afcf, #e3cee5);
+    //background-image: linear-gradient(to right top, #8b3470, #a05c8f, #b582ad, #cba8c9, #e3cee5);
+    width: 50%;
+    min-height: 20vh;
+    border-radius: 5px;
+    justify-self: left !important;
+    margin-right: 20px;
+    font-weight: bold;
+    font-size: medium;
+    
+}
+
+
+}
