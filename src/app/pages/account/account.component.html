@@ -1,1 +1,57 @@
-<p>account works!</p>
+<div class="account-page">
+  <!-- Profile Section -->
+  <section class="profile-section">
+    <!-- Display user's profile details -->
+    <div class="profile-details">
+      <!-- Placeholder for user's photo -->
+      <div class="profile-photo">
+        <img src="" alt="">
+        <button (click)="uploadPhoto()"></button>
+      </div>
+      <!-- User's basic info -->
+      <div class="basic-info">
+        <h1>Profile</h1>
+        <p><strong>Name:</strong> {{ userName }}</p>
+        <p><strong>Email:</strong> {{ userEmail }}</p>
+        <p><strong>Bio:</strong> {{ userBio }}</p>
+        <!-- Add more user info -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section class="about-me-section">
+    <h2>About Me</h2>
+    <!-- Textarea to display/edit user's bio or description -->
+    <textarea [(ngModel)]="userBio"></textarea>
+    <button (click)="saveBio()">Save Bio</button>
+  </section>
+
+  <!-- Courses Section -->
+  <section class="courses-section">
+    <h2>My Courses</h2>
+    <!-- Display user's enrolled courses -->
+    <ul>
+      <li>Course 1</li>
+      <li>Course 2</li>
+      <!-- Add more courses -->
+    </ul>
+  </section>
+
+  <!-- Edit Profile Section -->
+  <section class="edit-profile-section">
+    <h2>Edit Profile</h2>
+    <!-- Form to edit user's details -->
+    <form>
+      <label for="userName">Name:</label>
+      <input type="text" id="userName" [(ngModel)]="userName">
+      <label for="userEmail">Email:</label>
+      <input type="email" id="userEmail" [(ngModel)]="userEmail">
+      <label for="userphoto">Upload Photo:</label>
+      <input type="file" (change)="onFileSelected($event)">
+      <button (click)="saveProfile()">Save</button>
+    </form>
+  </section>
+
+  
+</div>
