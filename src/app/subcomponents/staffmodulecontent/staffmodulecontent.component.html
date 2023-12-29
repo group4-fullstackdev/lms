@@ -4,26 +4,29 @@
             Add Lecture Materials Here!
         </div>
        <div class="container justify-content-center notifybox">
-        
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">File title</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Material Type</label>
-            <select id="lecType" >
+        <form (submit)="submitForm()">
+            <div class="mb-3">
+              <label for="fileTitle" class="form-label">File Title</label>
+              <textarea class="form-control" id="fileTitle" rows="3" [(ngModel)]="formData.fileTitle" name="fileTitle" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="materialType" class="form-label">Material Type</label>
+              <select id="materialType" [(ngModel)]="formData.materialType" name="materialType" required>
                 <option value="lecnote">Lec Notes</option>
                 <option value="assignment">Assignment</option>
                 <option value="labsheet">Lab Materials</option>
               </select>
-          </div>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Attach file here</label>
-            <input class="form-control" type="file" id="confile">
-          </div>
-          <div class="container ">
-          <button type="submit" class="btn btcon btn-primary btn-lg"> Add</button>
-          </div>
+            </div>
+            <div class="mb-3">
+              <label for="fileInput" class="form-label">Attach File Here</label>
+              <input type="file" id="fileInput" (change)="onFileSelected($event)" required>
+            </div>
+            <div class="container">
+              <button type="submit" class="btn btcon btn-primary btn-lg">Add</button>
+            </div>
+          </form>
+          
+        
        </div>
     </div>
 </div>
