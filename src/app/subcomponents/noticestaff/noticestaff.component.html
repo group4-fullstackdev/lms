@@ -4,18 +4,19 @@
             Post Special Notices Here!
         </div>
        <div class="container justify-content-center notifybox">
-        
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Notice Title</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <form (submit)="submitForm()">
+          <div class="mb-3">
+            <label for="noticeTitle" class="form-label">Notice Title</label>
+            <textarea class="form-control" id="noticeTitle" rows="3" [(ngModel)]="noticeData.title" name="title" required></textarea>
           </div>
           <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Notice</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="noticeContent" class="form-label">Notice</label>
+            <textarea class="form-control" id="noticeContent" rows="3" [(ngModel)]="noticeData.content" name="content" required></textarea>
           </div>
-          <div class="container ">
-          <button type="submit" class="btn btcon btn-primary btn-lg"> Post</button>
+          <div class="container">
+            <button type="submit" class="btn btcon btn-primary btn-lg">Post</button>
           </div>
+        </form>
        </div>
     </div>
 </div>
