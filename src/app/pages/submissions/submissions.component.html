@@ -1,1 +1,20 @@
-<p>submissions works!</p>
+<div class=" container main justify-content-center">
+    <div class="wrapper">
+    <header>Add Submission</header>
+    <form (submit)="uploadFile()" (reset)="resetForm()">
+        <input class="file-input" type="file" name="file" (change)="onFileSelected($event)" hidden>
+        <i class="fas fa-cloud-upload-alt"></i>
+        <p>Browse File to Upload</p>
+      
+        <section class="progress-area"></section>
+        <section class="uploaded-area"></section>
+      
+        <label for="fname">Save File As:</label><br>
+        <input type="text" id="fname" name="fname" [(ngModel)]="fileName" required><br><br>
+      
+        <button type="submit" class="button button1">Upload</button>
+        <button type="reset" class="button button2">Cancel</button>
+      </form>
+    </div>
+  </div>
+ 
