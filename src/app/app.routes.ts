@@ -9,6 +9,8 @@ import { NoticeComponent } from './subcomponents/notice/notice.component';
 import { ChatroomComponent } from './subcomponents/chatroom/chatroom.component';
 import { GradesComponent } from './pages/grades/grades.component';
 import { NoticestaffComponent } from './subcomponents/noticestaff/noticestaff.component';
+import { EditnoteComponent } from './subcomponents/editnote/editnote.component';
+import { DisclistComponent } from './subcomponents/disclist/disclist.component';
 
 export const routes: Routes = [
   { path: '', component: Component1Component},
@@ -21,5 +23,7 @@ export const routes: Routes = [
   { path: 'chatroom', component: ChatroomComponent},
   { path: 'grades', component: GradesComponent},
   { path: 'noticestaff', component: NoticestaffComponent},
+  { path: 'disclist', component: DisclistComponent},
+  { path: 'editnote', component: EditnoteComponent},
   
 ];

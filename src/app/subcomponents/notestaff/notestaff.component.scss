@@ -1,0 +1,25 @@
+.wrapper{
+    color: black;
+    min-height: 90vh;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+   & .mainGrid{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: (60% , 20% , 20%);
+    column-gap: 5px;
+
+    }
+
+    & .grids{
+        background-color: rgb(177, 187, 187)240, 255, 255, 0.356;
+    }
+
+   & .btcon{
+        background-image: linear-gradient(to right top, #227f99, #5194a8, #75a8b8, #97bec9, #b8d3da);
+        color: #031e2e;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+}
