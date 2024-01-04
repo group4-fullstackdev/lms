@@ -1,5 +1,9 @@
 <div class=" container main justify-content-center">
     <div class="wrapper">
+    <ng-container *ngIf="loginService.batchID === 'staff'; else studentContent">
+      <app-submissionsstaff></app-submissionsstaff>
+      </ng-container>
+      <ng-template #studentContent>
     <header>Add Submission</header>
     <form (submit)="uploadFile()" (reset)="resetForm()">
         <input class="file-input" type="file" name="file" (change)="onFileSelected($event)" hidden>
@@ -15,6 +19,7 @@
         <button type="submit" class="button button1">Upload</button>
         <button type="reset" class="button button2">Cancel</button>
       </form>
+      </ng-template>
     </div>
   </div>
  

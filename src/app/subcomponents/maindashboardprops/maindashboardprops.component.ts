@@ -12,7 +12,7 @@ import { NgFor , CommonModule } from '@angular/common';
   styleUrl: './maindashboardprops.component.scss'
 })
 export class MaindashboardpropsComponent implements OnInit {
-  moduleNames: string[] = [];
+  moduleNames: any[] = [];
 
   constructor(private dashboardService: DashboardService) { }
 

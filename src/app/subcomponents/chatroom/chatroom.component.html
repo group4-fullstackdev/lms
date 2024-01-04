@@ -1,37 +1,46 @@
 <div class="wrapper">
-  <div class="container justify-content-center discforum">
-    <div class="container toppan">
-      Discussion Forum
-    </div>
-    <div class="container maing">
-      <div *ngFor="let chat of chats" class="container d-flex">
-        <div class="container" [ngClass]="{'chato': chat.chatsender !== loginService.accID, 'chatu': chat.chatsender === loginService.accID}">
-          <div class="dropdown">
-            <button class="btn btn-secondary btndrop dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              ...
-            </button>
-            <ul class="dropdown-menu">
-              <form *ngIf="chat.editing" (ngSubmit)="saveEdit(chat)">
-                <input type="text" [(ngModel)]="chat.editedMessage" />
-                <button type="submit">Save</button>
-              </form>
-              <form (click)="chatdelete(chat.id)">
-              <li><button class="dropdown-item" type="submit">Delete</button></li>
-              </form>
-            </ul>
+  <!-- Check if batchID is 'staff' -->
+  <ng-container *ngIf="loginService.batchID === 'staff'; else studentContent">
+    <!-- Display staff component -->
+    <app-disclist></app-disclist>
+  </ng-container>
+
+  <!-- If batchID is not 'staff', display student content -->
+  <ng-template #studentContent>
+    <div class="container justify-content-center discforum">
+      <div class="container toppan">
+        Discussion Forum
+      </div>
+      <div class="container maing">
+        <div *ngFor="let chat of chats" class="container d-flex">
+          <div class="container" [ngClass]="{'chato': chat.chatsender !== loginService.accID, 'chatu': chat.chatsender === loginService.accID}">
+            <div class="dropdown">
+              <button class="btn btn-secondary btndrop dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                ...
+              </button>
+              <ul class="dropdown-menu">
+                <form *ngIf="chat.editing" (ngSubmit)="saveEdit(chat)">
+                  <input type="text" [(ngModel)]="chat.editedMessage" />
+                  <button type="submit">Save</button>
+                </form>
+                <form (click)="chatdelete(chat.id)">
+                  <li><button class="dropdown-item" type="submit">Delete</button></li>
+                </form>
+              </ul>
+            </div>
+            &#64; {{ chat.chatsender }}
+            {{ chat.chat }}
           </div>
-          &#64; {{ chat.chatsender }}
-          {{ chat.chat }}
         </div>
       </div>
+      <div class="container chatenter">
+        <form (ngSubmit)="submitForm()">
+          <div class="container d-flex">
+            <textarea class="form-control form-control-lg" id="exampleFormControlTextarea1" rows="1" [(ngModel)]="postData.text"></textarea>
+            <button type="submit" class="btn btcon btn-primary btn-lg">Post</button>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="container chatenter">
-      <form (ngSubmit)="submitForm()">
-        <div class="container d-flex">
-          <textarea class="form-control form-control-lg" id="exampleFormControlTextarea1" rows="1" [(ngModel)]="postData.text"></textarea>
-          <button type="submit" class="btn btcon btn-primary btn-lg">Post</button>
-        </div>
-      </form>
-    </div>
-  </div>
+  </ng-template>
 </div>

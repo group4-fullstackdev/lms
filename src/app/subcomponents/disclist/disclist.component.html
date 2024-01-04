@@ -4,7 +4,7 @@
     </div>
     <div class="container justify-content-center cardmod">
         <p class="title"> Batch List</p>
-        <p *ngFor="let batch of discussionList" class="title dgroup"> {{ batch.batchID }} </p>
+        <p *ngFor="let batch of discussionList" class="title dgroup">  <a routerLink='/chatroom' routerLinkActive="active" class="nav-link"> {{ batch.batchID }} </a> </p>
         </div>
    
 </div>

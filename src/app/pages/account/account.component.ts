@@ -2,19 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Component , OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountService } from './account.service';
+import { LoginService } from '../login/login.service';
 
 
 @Component({
   selector: 'app-account',
   standalone: true,
   imports: [FormsModule],
+  providers:[LoginService],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss'
 })
 export class AccountComponent implements OnInit{
   constructor(
     private http: HttpClient,
-    private accountService: AccountService
+    private accountService: AccountService,
+    public loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -85,5 +88,19 @@ export class AccountComponent implements OnInit{
       );
   }
 
+  logout(): void{
+    this.loginService.clearUserState();
+
+    this.http.post('http://localhost:3000/api/nlearnlogout', {}).subscribe(
+      () => {
+        console.log('Backend session cleared successfully.');
+      },
+      (error) => {
+        console.error('Error clearing backend session:', error);
+      }
+    );
+  }
+
+  }
+
   
-}

@@ -1,21 +1,29 @@
 <div class="wrapper">
-  <div class="grid-container maing">
-    <div class="accordion" id="accordionExample">
-      <div *ngFor="let note of notes" class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                  [attr.data-bs-target]="'#collapse' + note.id" aria-expanded="true"
-                  [attr.aria-controls]="'collapse' + note.id">
-            {{ note.notetitle }}
-          </button>
-        </h2>
-        <div [id]="'collapse' + note.id" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <strong>{{ note.notetitle }}</strong> {{ note.note }}
+  <!-- Check if batchID is 'staff' -->
+  <ng-container *ngIf="loginService.batchID === 'staff'; else studentContent">
+    <!-- Display staff component -->
+   <app-notestaff></app-notestaff>
+  </ng-container>
+
+  <!-- If batchID is not 'staff', display student content -->
+  <ng-template #studentContent>
+    <div class="grid-container maing">
+      <div class="accordion" id="accordionExample">
+        <div *ngFor="let note of notes" class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    [attr.data-bs-target]="'#collapse' + note.id" aria-expanded="true"
+                    [attr.aria-controls]="'collapse' + note.id">
+              {{ note.notetitle }}
+            </button>
+          </h2>
+          <div [id]="'collapse' + note.id" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>{{ note.notetitle }}</strong> {{ note.note }}
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </ng-template>
 </div>
-

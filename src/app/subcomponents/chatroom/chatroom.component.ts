@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { LoginService } from '../../pages/login/login.service';
 import { ChatroomService } from './chatroom.service';
 import { NgFor, NgClass, CommonModule } from '@angular/common';
+import { DisclistComponent } from '../disclist/disclist.component';
 
 @Component({
   selector: 'app-chatroom',
   standalone: true,
-  imports: [FormsModule , NgClass, NgFor, CommonModule],
+  imports: [FormsModule , NgClass, NgFor, CommonModule , DisclistComponent],
   providers: [LoginService , ChatroomService],
   templateUrl: './chatroom.component.html',
   styleUrl: './chatroom.component.scss'
