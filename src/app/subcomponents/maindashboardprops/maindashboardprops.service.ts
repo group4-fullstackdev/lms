@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
   })
   export class DashboardService {
-    private apiUrl = 'http://localhost:3000/api/nlearn/dashboardcon'; 
+    private apiUrl = 'http://localhost:3000/api/nlearn'; 
   
     constructor(private http: HttpClient) { }
   
     getDashboardContent(): Observable<any> {
-      return this.http.get<any>(`${this.apiUrl}/api/nlearn/dashboardcon`);
+      return this.http.get<any>(`${this.apiUrl}/dashboardcon`);
     }
   }
   

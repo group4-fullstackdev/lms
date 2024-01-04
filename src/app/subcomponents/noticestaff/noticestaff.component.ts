@@ -22,10 +22,10 @@ export class NoticestaffComponent {
     formData.append('title', this.noticeData.title);
     formData.append('content', this.noticeData.content);
     // Send form data to the backend 
-    this.http.post('your-backend-api-endpoint', this.noticeData)
+    this.http.post('http://localhost:3000/api/nlearn/setnotices', this.noticeData)
       .subscribe((response: any) => {
-        console.log('Data sent successfully:', response);
-        // Handle response from the backend
+        console.log('Data sent successfully:' , response);
+        
       });
   }
 }

@@ -1,17 +1,21 @@
 <div class="wrapper">
-    <div class="grid-container maing">
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  PUSL 3031 Submission Guidelines
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  <strong>Assignment Submission Guidelines.</strong> The guidelines file has updated on the LMS! Please read the instructions carefully!
-                </div>
-              </div>
-            </div>
+  <div class="grid-container maing">
+    <div class="accordion" id="accordionExample">
+      <div *ngFor="let note of notes" class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  [attr.data-bs-target]="'#collapse' + note.id" aria-expanded="true"
+                  [attr.aria-controls]="'collapse' + note.id">
+            {{ note.notetitle }}
+          </button>
+        </h2>
+        <div [id]="'collapse' + note.id" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>{{ note.notetitle }}</strong> {{ note.note }}
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
+

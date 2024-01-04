@@ -1,1 +1,12 @@
-<p>studentsubmitform works!</p>
+<div class="wrapper">
+    <div class="container d-flex justify-content-center">
+        <p class="welcome"> Submitted Assignments</p>
+    </div>
+    <div class="container justify-content-center cardmod">
+        <p class="title"> Module: PUSL3031</p>
+        <div *ngFor="let submission of studentSubmissions" class="container">
+            <p>{{ submission.fname }}</p>
+          </div>
+        </div>
+   
+</div>

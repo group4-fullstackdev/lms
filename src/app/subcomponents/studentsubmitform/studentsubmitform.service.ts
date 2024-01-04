@@ -6,13 +6,13 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class SubmissionsStaffService {
+export class StudentsubmitformService {
   private apiUrl = 'http://localhost:3000'; 
 
   constructor(private http: HttpClient) {}
 
-  getStudentSubmissions(modID: string, subtitle: string): Observable<any> {
-    const url = `${this.apiUrl}/api/nlearn/studentsubmissions/${modID}/${subtitle}`;
+  getStudentSubmissions(): Observable<any> {
+    const url = `${this.apiUrl}/api/nlearn/getsubstudent`;
     return this.http.get(url);
   }
 }

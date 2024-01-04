@@ -2,18 +2,26 @@
     <div class="grid-container justify-content-center mainGrid">
         <div class="grid-item grid-item-1 grids">
             <div class="container d-flex justify-content-center ">
-            </div>
-        </div>
-        <div class="grid-item grid-item-2 grids">
-            <div class="container d-flex justify-content-center ">
-                <form>
-                    <button type="submit" class="btn btcon btn-primary btn-lg">Delete</button>
-                  </form>
-            </div>
-        </div>
-        <div class="grid-item grid-item-3 grids">
-            <div class="container d-flex justify-content-center ">
-                <a routerLink="/editnote" routerLinkActive="active" class="btcon btn btn-primary btn-lg">Edit</a>
+                <div class="accordion" id="accordionExample">
+                    <div *ngFor="let note of notes" class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                [attr.data-bs-target]="'#collapse' + note.id" aria-expanded="true"
+                                [attr.aria-controls]="'collapse' + note.id">
+                          {{ note.notetitle }}
+                        </button>
+                      </h2>
+                      <div [id]="'collapse' + note.id" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <strong>{{ note.notetitle }}</strong> {{ note.note }}
+                          <form (click)="dnote(note.id)">
+                            <button type="submit" class="btn btcon btn-primary btn-lg">Delete</button>
+                          </form>
+                          <a routerLink="/editnote" routerLinkActive="active" class="btcon btn btn-primary btn-lg">Edit</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             </div>
         </div>
     </div>

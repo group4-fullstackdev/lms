@@ -1,16 +1,10 @@
 <div class="wrapper">
-    <div class="container d-flex justify-content-center">
-        <p class="welcome"> PUSL3031 - FULL-STACK DEVELOPMENT </p>
-    </div>
-    <div class="container justify-content-center cardmod">
-        <p class="title"> Lecture Notes</p>
-        </div>
-        <div class="container justify-content-center cardmod">
-            <p class="title"> Lab Materials</p>
-            </div>
-            <div class="container justify-content-center cardmod">
-                <p class="title"> Assignments</p>
-                </div>
+    <div *ngFor="let module of moduleContent" class="container d-flex justify-content-center">
+        <p class="welcome"> {{ module.modID }} - FULL-STACK DEVELOPMENT </p>
+      </div>
+      <div *ngFor="let module of moduleContent" class="container justify-content-center cardmod" [ngClass]="getCardClass(module.contentType)">
+        <p class="title"> {{ getCardContentTitle(module.contentType) }}</p>
+      </div>
                 <div class="container justify-content-center cardmod">
                     <p class="title"> Submissions</p>
                     </div>

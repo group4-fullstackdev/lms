@@ -1,22 +1,40 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { GradesService } from './grades.service';
+import { NgFor, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-grades',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule , CommonModule, NgFor],
   templateUrl: './grades.component.html',
-  styleUrl: './grades.component.scss'
+  styleUrls: ['./grades.component.scss']
 })
-export class GradesComponent {
-  constructor(private http: HttpClient) {}
+export class GradesComponent implements OnInit {
+  grades: any[] = [];
+
+  constructor(private http: HttpClient, private gradesService: GradesService) {}
+
+  ngOnInit(): void {
+    this.fetchGrades();
+  }
+
+  fetchGrades(): void {
+    this.gradesService.getGrades().subscribe(
+      (response) => {
+        this.grades = response;
+        console.log('Grades retrieved successfully:');
+      },
+      (error) => {
+        console.error('Error retrieving grades:', error);
+      }
+    );
+  }
 
   downloadResults() {
-    // Send a request to the backend using HttpClient
-    this.http.get('your-backend-api-endpoint', { responseType: 'arraybuffer' })
+    this.http.get('http://localhost:3000/api/nlearn/getresultsdoc', { responseType: 'arraybuffer' })
       .subscribe((response: any) => {
-        // Handle the response
         this.downloadFile(response);
       });
   }
