@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AccountService } from './account.service';
 
 
 @Component({
@@ -10,9 +11,33 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss'
 })
-export class AccountComponent {
+export class AccountComponent implements OnInit{
+  constructor(
+    private http: HttpClient,
+    private accountService: AccountService
+  ) {}
 
-  userBio: string = ''; // Placeholder for user's bio
+  ngOnInit(): void {
+    this.fetchUserProfile();
+  }
+
+  fetchUserProfile() {
+    this.accountService.getProfile().subscribe(
+      (response) => {
+        this.userType = response.user.UserType;
+        this.userName = response.user.name;
+        this.userEmail = response.user.email;
+      },
+      (error) => {
+        console.error('Error retrieving user profile', error);
+      }
+    );
+  }
+
+  
+
+
+  userType: string = ''; // Placeholder for user's bio
   userName: string = ''; // Placeholder for user's name
   userEmail: string = ''; // Placeholder for user's email
 
@@ -24,12 +49,17 @@ export class AccountComponent {
     //  user's bio
   }
 
+  deleteprof(){
+    this.http.get('http://localhost:3000/api/nlearn/deleteprof')
+      .subscribe((response: any) => {
+        
+      });
+  }
+
 
   uName: string = '';
   uEmail: string = '';
   selectedFile: File | null = null;
-
-  constructor(private http: HttpClient) {}
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
@@ -44,11 +74,16 @@ export class AccountComponent {
       formData.append('userPhoto', this.selectedFile, this.selectedFile.name);
     }
 
-    // Replace 'your-backend-api-endpoint' with the actual URL of your backend API endpoint
-    this.http.post('your-backend-api-endpoint', formData)
-      .subscribe(response => {
-        console.log('Profile saved successfully:', response);
-        // Handle response from the backend if needed
-      });
+    this.http.post('http://localhost:3000/api/nlearn/setprofile', formData)
+      .subscribe(
+        (response) => {
+          console.log('Profile saved successfully:', response);
+        },
+        (error) => {
+          console.error('Error saving user profile', error);
+        }
+      );
   }
+
+  
 }

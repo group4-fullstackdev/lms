@@ -26,7 +26,7 @@ export class SubmissionsComponent {
     formData.append('file', this.fileInput.files[0]);
     formData.append('fileName', this.fileName);
 
-    this.http.post('/', formData)
+    this.http.post('http://localhost:3000/api/nlearn/addsubmission', formData)
       .subscribe(response => {
         console.log('File uploaded successfully:', response);
         // Handle response from the backend if needed

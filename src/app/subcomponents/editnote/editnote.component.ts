@@ -22,10 +22,9 @@ export class EditnoteComponent {
     formData.append('title', this.noticeData.title);
     formData.append('content', this.noticeData.content);
     // Send form data to the backend 
-    this.http.post('your-backend-api-endpoint', this.noticeData)
+    this.http.put('http://localhost:3000/api/nlearn/editnotices', this.noticeData)
       .subscribe((response: any) => {
         console.log('Data sent successfully:', response);
-        // Handle response from the backend
       });
   }
 

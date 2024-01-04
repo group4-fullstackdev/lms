@@ -15,6 +15,10 @@ export class StaffmodulecontentComponent {
     file: null as File | null 
   };
 
+  formD = {
+    fileTitle: ''
+  };
+
   constructor(private http: HttpClient) {}
 
   onFileSelected(event: any) {
@@ -30,10 +34,19 @@ export class StaffmodulecontentComponent {
       formData.append('file', this.formData.file, this.formData.file.name);
     }
 
-    this.http.post('your-backend-api-endpoint', formData)
-      .subscribe(response => {
-        console.log('Form data submitted successfully:', response);
-        // Handle response from the backend if needed
-      });
+    this.http.post('http://localhost:3000/api/nlearn/setmodcontent', formData)
+    .subscribe(response => {
+      console.log('Form data submitted successfully:', response);
+    });
+  }
+
+  submitDForm() {
+    const formD= new FormData();
+    formD.append('fileTitle', this.formData.fileTitle);
+
+    this.http.post('http://localhost:3000/api/nlearn/deletemodcontent', formD)
+    .subscribe(response => {
+      console.log('Form data submitted successfully:', response);
+    });
   }
 }

@@ -13,9 +13,10 @@
         <h1>Profile</h1>
         <p><strong>Name:</strong> {{ userName }}</p>
         <p><strong>Email:</strong> {{ userEmail }}</p>
-        <p><strong>Bio:</strong> {{ userBio }}</p>
+        <p><strong>Bio:</strong> {{ userType }}</p>
         <!-- Add more user info -->
       </div>
+      <button (click)="deleteprof()">Delete Bio</button>
     </div>
   </section>
 
@@ -32,8 +33,7 @@
     <h2>My Courses</h2>
     <!-- Display user's enrolled courses -->
     <ul>
-      <li>Course 1</li>
-      <li>Course 2</li>
+      <li>View Dashboard</li>
       <!-- Add more courses -->
     </ul>
   </section>
