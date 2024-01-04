@@ -4,12 +4,9 @@
     </div>
     <div class="container justify-content-center cardcon">
         <div class="container d-flex modcard" *ngFor="let moduleName of moduleNames">
-            <p class="mod"> <a [routerLink]="'/modulecontent/' + moduleName"  routerLinkActive="active"  class="nav-link"> </a> 
-                {{ moduleName }}
+            <p class="mod"> <a [routerLink]="'/modulecontent/' + moduleName.modID"  routerLinkActive="active"  class="nav-link"> </a> 
+                {{moduleName.modname }} - {{moduleName.modID}}
             </p>
-        </div>
-        <div class="container d-flex modcard">
-            <p class="mod"> PUSL1021 - COMPUTING FINAL PROJECT</p>
         </div>
     </div>
 </div>

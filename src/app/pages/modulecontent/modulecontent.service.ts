@@ -6,11 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ModuleContentService {
-  private apiUrl = 'http://localhost:3000/api/nlearn/modcontent'; 
+  private apiUrl = 'http://localhost:3000/api/nlearn/modcontent/';
 
   constructor(private http: HttpClient) {}
 
-  getModuleContent(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  getModuleContent(modID: string): Observable<any> {
+    const url = `${this.apiUrl}${modID}`;
+    return this.http.get<any>(url);
   }
 }
+

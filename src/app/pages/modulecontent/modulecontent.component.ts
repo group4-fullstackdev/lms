@@ -1,34 +1,52 @@
 import { Component , OnInit } from '@angular/core';
 import { ModuleContentService } from './modulecontent.service';
 import { NgFor , CommonModule } from '@angular/common';
-
+import { ActivatedRoute  , Router, RouterLink, RouterModule} from '@angular/router';
+import { LoginService } from '../login/login.service';
+import { StaffmodulecontentComponent } from '../../subcomponents/staffmodulecontent/staffmodulecontent.component';
 @Component({
   selector: 'app-modulecontent',
   standalone: true,
-  imports: [NgFor , CommonModule],
+  imports: [NgFor , CommonModule, RouterLink, RouterModule , StaffmodulecontentComponent],
   templateUrl: './modulecontent.component.html',
   styleUrl: './modulecontent.component.scss'
 })
 export class ModulecontentComponent implements OnInit{
   moduleContent: any[] = [];
+  modID!: string;
 
-  constructor(private moduleContentService: ModuleContentService) {}
+  constructor(private moduleContentService: ModuleContentService , private route: ActivatedRoute , public loginService: LoginService) {
+    
+  }
 
   ngOnInit(): void {
     this.fetchModuleContent();
+
+    this.route.paramMap.subscribe(params => {
+      const modID = params.get('modID');
+    
+      if (modID !== null) {
+        this.modID = modID;
+        console.log('modID:', this.modID);
+      }
+    });
+    
+
+    
   }
 
   fetchModuleContent() {
-    this.moduleContentService.getModuleContent().subscribe(
+    this.moduleContentService.getModuleContent(this.modID).subscribe(
       response => {
         this.moduleContent = response.moduleContent;
-        console.log('Module content retrieved successfully:');
+        console.log('Module content retrieved successfully:', this.moduleContent);
       },
       error => {
         console.error('Error retrieving module content:', error);
       }
     );
   }
+  
 
   getCardClass(contentType: string): string {
     switch (contentType) {
@@ -55,5 +73,6 @@ export class ModulecontentComponent implements OnInit{
         return 'Submissions';
     }
   }
+
 
 }

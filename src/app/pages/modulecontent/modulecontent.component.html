@@ -1,12 +1,21 @@
 <div class="wrapper">
+  <!-- Check if batchID is 'staff' -->
+  <ng-container *ngIf="loginService.batchID === 'staff'; else studentContent">
+    <!-- Display staff component -->
+    <app-staffmodulecontent></app-staffmodulecontent>
+  </ng-container>
+  <!-- Display student component -->
+  <ng-template #studentContent>
     <div *ngFor="let module of moduleContent" class="container d-flex justify-content-center">
-        <p class="welcome"> {{ module.modID }} - FULL-STACK DEVELOPMENT </p>
-      </div>
-      <div *ngFor="let module of moduleContent" class="container justify-content-center cardmod" [ngClass]="getCardClass(module.contentType)">
-        <p class="title"> {{ getCardContentTitle(module.contentType) }}</p>
-      </div>
-                <div class="container justify-content-center cardmod">
-                    <p class="title"> Submissions</p>
-                    </div>
-   
+      <p class="welcome">{{ this.modID }}</p>
+    </div>
+    <div *ngFor="let module of moduleContent" class="container justify-content-center cardmod" [ngClass]="getCardClass(module.contentType)">
+      <p class="title">{{ getCardContentTitle(module.contentType) }} <br> {{ module.ftitle }} </p>
+    </div>
+    <div class="container justify-content-center cardmod">
+      <p class="title"> Submissions</p>
+      <a routerLink='/submission' routerLinkActive="active" class="nav-link"> Coursework </a>
+    </div>
+  </ng-template>
 </div>
+
