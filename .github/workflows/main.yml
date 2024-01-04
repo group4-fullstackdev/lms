@@ -1,5 +1,5 @@
-name: GitHub Actions Configuration
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Github Actions , Build, Test
+run-name: ${{ github.actor }} is testing out the project🚀
 on: [push]
 jobs:
   Explore-GitHub-Actions:
