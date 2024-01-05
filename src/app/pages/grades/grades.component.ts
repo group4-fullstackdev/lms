@@ -48,7 +48,7 @@ export class GradesComponent implements OnInit {
     document.body.appendChild(a);
     a.style.display = 'none';
     a.href = url;
-    a.download = 'results.zip';
+    a.download = 'results';
     a.click();
     window.URL.revokeObjectURL(url);
   }

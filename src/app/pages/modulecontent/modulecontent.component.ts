@@ -4,6 +4,7 @@ import { NgFor , CommonModule } from '@angular/common';
 import { ActivatedRoute  , Router, RouterLink, RouterModule} from '@angular/router';
 import { LoginService } from '../login/login.service';
 import { StaffmodulecontentComponent } from '../../subcomponents/staffmodulecontent/staffmodulecontent.component';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-modulecontent',
   standalone: true,
@@ -15,7 +16,7 @@ export class ModulecontentComponent implements OnInit{
   moduleContent: any[] = [];
   modID!: string;
 
-  constructor(private moduleContentService: ModuleContentService , private route: ActivatedRoute , public loginService: LoginService) {
+  constructor(private http: HttpClient,private moduleContentService: ModuleContentService , private route: ActivatedRoute , public loginService: LoginService) {
     
   }
 
@@ -72,6 +73,27 @@ export class ModulecontentComponent implements OnInit{
       default:
         return 'Submissions';
     }
+  }
+
+  download(ftitle : String){
+    this.http.get('http://localhost:3000/api/nlearn/modcontent/'+ {ftitle}, { responseType: 'arraybuffer' })
+      .subscribe((response: any) => {
+        this.downloadFile(response);
+      });
+
+  }
+  private downloadFile(data: any) {
+    const blob = new Blob([data], { type: 'application/octet-stream' });
+    const url = window.URL.createObjectURL(blob);
+
+    // Create a temporary link and trigger a download
+    const a = document.createElement('a');
+    document.body.appendChild(a);
+    a.style.display = 'none';
+    a.href = url;
+    a.download = 'modcontent';
+    a.click();
+    window.URL.revokeObjectURL(url);
   }
 
 

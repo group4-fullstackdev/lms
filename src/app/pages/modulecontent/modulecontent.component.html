@@ -10,7 +10,7 @@
       <p class="welcome">{{ this.modID }}</p>
     </div>
     <div *ngFor="let module of moduleContent" class="container justify-content-center cardmod" [ngClass]="getCardClass(module.contentType)">
-      <p class="title">{{ getCardContentTitle(module.contentType) }} <br> {{ module.ftitle }} </p>
+      <p class="title" (click)="download(module.ftitle)">{{ getCardContentTitle(module.contentType) }} <br> {{ module.ftitle }} </p>
     </div>
     <div class="container justify-content-center cardmod">
       <p class="title"> Submissions</p>
